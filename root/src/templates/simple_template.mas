@@ -1,0 +1,37 @@
+<%attr>
+</%attr>
+
+<head>
+<title></title>
+<link rel="stylesheet" href="<% $c->uri_for('/static/css/main.css') %>" />
+</head>
+
+<body>
+<div id="outer">
+<div id="header">
+    <img src="<% $c->uri_for('/static/images/btn_88x31_powered.png') %>" />
+    <h1>Title</h1>
+</div>
+
+<div id="bodyblock">
+<div id="menu">
+    Navigation:
+    <ul>
+        <li><a href="<% $c->uri_for('/books/list') %>">Home</a></li>
+        <li><a href="<% $c->uri_for('/')
+            %>" title="Catalyst Welcome Page">Welcome</a></li>
+    </ul>
+</div><!-- end menu -->
+
+  <div class="page-wrap">
+    <div class="container-fluid">
+      <section class="scroll-fix" id="fixed-header">
+        <div class="pin-top">
+        </div>
+      </section>
+%     $m->call_next();
+
+    </div>
+    <div class="push"></div>
+  </div>
+</body>

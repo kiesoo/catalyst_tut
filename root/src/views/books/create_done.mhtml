@@ -1,0 +1,13 @@
+<%args>
+    $book => undef
+</%args>
+
+<%init>
+    use Data::Dumper;
+</%init>
+
+<p>Added book '<% $book->title() %>'
+by '<% $book->authors()->first()->last_name() %>'
+with a rating of <% $book->rating() %>.</p>
+
+<p><a href="<% $c->uri_for('/books/list') %>">Return to list</a></p>

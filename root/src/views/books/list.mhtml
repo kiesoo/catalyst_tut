@@ -1,0 +1,27 @@
+<%flags>
+  inherit => "/templates/main_template.mas"
+</%flags>
+
+<%args>
+    $books => undef
+</%args>
+
+<table>
+<tr><th>Title</th><th>Rating</th><th>Author(s)</th></tr>
+
+% foreach my $book ( @{ $books } ){
+  <tr>
+    <td><% $book->title() %></td>
+    <td><% $book->rating() %></td>
+    <td>
+        ( <% $book->author_count() %> ) 
+        <% $book->author_list() %>;
+    </td>
+    <td>
+        <a href="<% $c->uri_for( $c->controller->action_for('delete'),
+            [ $book->id() ] ) %>">
+        Delete
+    </td>
+  </tr>
+% }
+</table>
